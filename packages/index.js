@@ -1,9 +1,9 @@
-import StarrySky from './StarrySky';
+import ElModalHook from './Modal';
 
 //按需引入
-export { StarrySky };
+export { ElModalHook };
 
-const components = [StarrySky];
+const components = [ElModalHook];
 
 const install = (App) => {
 	components.forEach((item) => {
