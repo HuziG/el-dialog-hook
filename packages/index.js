@@ -1,16 +1,17 @@
-import ElModalHook from './Modal';
+import ElModalHook from './Modal/basicModal.vue'
+import useModal from './Modal/useModal'
 
-//按需引入
-export { ElModalHook };
+export { useModal }
 
-const components = [ElModalHook];
+const components = [ElModalHook]
 
 const install = (App) => {
-	components.forEach((item) => {
-		App.component(item.__name, item);
-	});
-};
+  components.forEach((item) => {
+    App.component(item.__name, item)
+  })
+}
 
 export default {
-	install,
-};
+  install,
+}
+

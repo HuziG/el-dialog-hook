@@ -3,14 +3,26 @@ import vue from '@vitejs/plugin-vue';
 const { resolve } = require('path');
 import ElementPlus from 'unplugin-element-plus/vite'
 
+function pathResolve(dir) {
+  return resolve(process.cwd(), '.', dir)
+}
+
 export default defineConfig({
 	plugins: [vue(), ElementPlus()],
+	resolve: {
+    alias: [
+      {
+        find: 'el-modal-hook',
+        replacement: `${pathResolve('packages/index.js')}`,
+      },
+    ],
+  },
 	build: {
 		outDir: 'lib',
 		lib: {
 			entry: resolve(__dirname, 'packages/index.js'), //指定组件编译入口文件
-			name: 'Vue3StarrySky',
-			fileName: 'vue3-starry-sky',
+			name: 'elModalHook',
+			fileName: 'el-modal-hook',
 		},//库编译模式配置
 		rollupOptions: {
 			// 确保外部化处理那些你不想打包进库的依赖

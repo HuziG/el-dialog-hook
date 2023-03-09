@@ -1,3 +1,8 @@
+function isObject(value) {
+  let type = typeof value;
+  return value != null && (type == 'object' || type == 'function');
+}
+
 export function deepMerge(src, target) {
   let key
   for (key in target) {
@@ -12,7 +17,7 @@ export function getDynamicProps(props) {
   const ret = {}
 
   Object.keys(props).forEach((key) => {
-    ret[key] = unref(props[key])
+    ret[key] = props[key]
   })
 
   return ret

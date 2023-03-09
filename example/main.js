@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-// import Vue3StarrySky from '../packages/index';
+import ElModalHook from 'el-modal-hook';
 
 const app = createApp(App);
-// app.use(Vue3StarrySky);
+app.use(ElModalHook);
 app.mount('#app');

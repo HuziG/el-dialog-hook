@@ -1,12 +1,12 @@
 import { getCurrentInstance, ref, unref, watch } from 'vue'
 import { getDynamicProps } from './utils'
 
-export function useModal(props) {
-  const modalRef = ref<Nullable<ModalMethods>>(null)
+export default function useModal(props) {
+  const modalRef = ref(null)
   const currentInstance = getCurrentInstance()
 
-  const insideRef = ref<any>(null)
-  const currentChangeValue = ref<any>(null)
+  const insideRef = ref(null)
+  const currentChangeValue = ref(null)
 
   const getInstance = () => {
     const instance = unref(modalRef.value)
