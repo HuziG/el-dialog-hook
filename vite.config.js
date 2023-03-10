@@ -2,13 +2,14 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 const { resolve } = require('path');
 import ElementPlus from 'unplugin-element-plus/vite'
+import WindiCSS from 'vite-plugin-windicss'
 
 function pathResolve(dir) {
   return resolve(process.cwd(), '.', dir)
 }
 
 export default defineConfig({
-	plugins: [vue(), ElementPlus()],
+	plugins: [vue(), ElementPlus(), WindiCSS()],
 	resolve: {
     alias: [
       {

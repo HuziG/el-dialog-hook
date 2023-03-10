@@ -1,31 +1,27 @@
 <template>
   <el-dialog id="basic-modal" v-model="isModal">
     <template #header>
-      <div id="basic-modal-bar" class="w-full cursor-move">
-        {{ getBindValue.title }}
-      </div>
+      {{ getBindValue.title }}
     </template>
 
     <template #default>
       <slot name="default" />
     </template>
 
-    <template v-if="!$slots.action" #action>
-      <NSpace>
-        <el-button @click="closeModal">
-          取消
-        </el-button>
-        <el-button
-          type="primary"
-          :disabled="subSubDisabled"
-          :loading="subLoading"
-          @click="handleSubmit"
-        >
-          {{ subBtuText }}
-        </el-button>
-      </NSpace>
+    <template v-if="!$slots.action" #footer>
+      <el-button @click="closeModal">
+        取消
+      </el-button>
+      <el-button
+        type="primary"
+        :disabled="subSubDisabled"
+        :loading="subLoading"
+        @click="handleSubmit"
+      >
+        {{ subBtuText }}
+      </el-button>
     </template>
-    <template v-else #action>
+    <template v-else #footer>
       <slot name="action" />
     </template>
   </el-dialog>
@@ -33,7 +29,8 @@
 
 <script setup>
 import 'element-plus/es/components/dialog/style/css'
-import { ElDialog } from 'element-plus'
+import 'element-plus/es/components/button/style/css'
+import { ElDialog, ElButton } from 'element-plus'
 import {
   computed,
   defineEmits,
