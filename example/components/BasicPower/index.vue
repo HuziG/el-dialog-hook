@@ -1,6 +1,8 @@
 <script setup>
 import CodeContainer from '../CodeContainer/index.vue'
 
+import { code } from './code'
+
 import 'element-plus/es/components/button/style/css'
 import { ElButton } from 'element-plus'
 import { useModal } from 'el-modal-hook'
@@ -29,7 +31,12 @@ const handleOk = () => {
       </el-button>
     </div>
     
-    <CodeContainer />
+    <CodeContainer :value="[
+      {
+        fileName: 'index.vue',
+        codeContent: code
+      }
+    ]" />
 
     <basicModal @register="register" @on-ok="handleOk">
       <div class="button-group">

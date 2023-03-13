@@ -1,6 +1,8 @@
 <template>
 	<div class="container mx-auto">
 		<BasicPower />
+
+		<div class="h-10"></div>
 	</div>
 </template>
 
